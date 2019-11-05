@@ -1,5 +1,5 @@
 # Install
-* <code>git clone blabla _desired_folder_</code>
+* <code>git clone https://github.com/csilviu/mindgeek-showcase.git _desired_folder_</code>
 * <code>cd _desired_folder_</code>
 * <code>composer install</code>
 * for unit tests: <code>php ./bin/phpunit</code>
