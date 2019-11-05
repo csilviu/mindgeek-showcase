@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Movies!!!!</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <h1>{{ page_title }}</h1>
+    {% include('paginator.html.twig') %}
+
+    {% for movie in movies %}
+        {% include('movie.html.twig') %}
+    {% endfor %}
+
+    {% include('paginator.html.twig') %}
+
+    <script>
+        for(var button of document.getElementsByClassName('more')){
+            button.onclick = function () {
+                var parent = this.parentNode;
+                var sibling = parent.getElementsByClassName('inner')[0];
+                if(sibling.style.display === 'none'){
+                    sibling.style.display = 'block';
+                } else {
+                    sibling.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

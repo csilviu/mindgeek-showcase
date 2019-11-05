@@ -1,0 +1,75 @@
+
+<article class="movie">
+    <div class="keyArtImages">
+        {% for image in movie.keyArtImages %}
+            {% if image.path %}
+                <img src="{{ image.path }}" width="{{ image.w }}" height="{{ image.h }}">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <h1><a href="{{ movie.url }}" target="_blank">{{ movie.headline }}</a> <span>({{ movie.year }})</span></h1>
+    <ul class="details">
+        {% if movie.rating %}
+            <li title="rating">{{ movie.rating }} 	&#9733;</li>
+        {% endif %}
+        <li title="certification">{{ movie.cert }}</li>
+        <li title="duration">{{ movie.duration/60 }} min</li>
+        <li title="genres">{{ movie.genres|join(', ') }}</li>
+        <li><em>{{ movie.quote }}</em></li>
+    </ul>
+    <p class="synopsis">{{ movie.synopsis }}</p>
+    <p><strong>Director{% if movie.directors|length > 1 %}s{% endif %}</strong>: {{  movie.directors|join(', ') }}
+        <br>
+    <strong>Cast</strong>: {{  movie.cast|join(', ') }}</p>
+
+    <div class="other_details">
+        <a class="more">See more details...</a>
+        <div class="inner" style="display: none;">
+            <div class="review">
+                <p class="body">{{ movie.body }}</p>
+                <p class="author">{{ movie.reviewAuthor }}</p>
+            </div>
+
+            <ul>
+                <li>id: {{ movie.id }}</li>
+                <li>sum: {{ movie.sum }}</li>
+                {% if movie.skyGoId %}
+                <li>skyGoId: <a href="{{ movie.skyGoUrl }}">{{ movie.skyGoId }}</a></li>
+                {% endif %}
+                {% if movie.sgid %}
+                <li>sgid: <a href="{{ movie.sgUrl }}">{{ movie.sgid }}</li>
+                {% endif %}
+                <li>Class: {{ movie.class }}</li>
+                <li>Last Updated: {{ movie.lastUpdated }}</li>
+            </ul>
+
+            {% if movie.viewingWindow %}
+            <h3>Where to watch</h3>
+            <p>
+                {% if movie.viewingWindow.title %}
+                {{ movie.viewingWindow.title }}
+                {% endif %}
+                {% if movie.viewingWindow.wayToWatch %}
+                    on {{ movie.viewingWindow.wayToWatch }}
+                {% endif %}
+                {% if movie.viewingWindow.startDate %}
+                    from {{ movie.viewingWindow.startDate }}
+                {% endif %}
+                {% if movie.viewingWindow.endDate %}
+                    to {{ movie.viewingWindow.endDate }}
+                {% endif %}
+            </p>
+            {% endif %}
+
+            <div class="cardImages">
+                {% for image in movie.cardImages %}
+                    {% if image.path %}
+                        <img src="{{ image.path }}" width="{{ image.w }}" height="{{ image.h }}">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</article>

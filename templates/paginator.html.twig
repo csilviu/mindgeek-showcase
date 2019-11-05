@@ -1,0 +1,10 @@
+<div class="paginator">
+    {% for i in range(1, (paginator.total/constant('App\\Helper\\Paginator::ITEMS_PER_PAGE'))|round(0, 'ceil')) %}
+        {% if i == paginator.page %}
+            <span>{{ i }}</span>
+        {% else %}
+        <a href="{{ path('index', {page: i}) }}">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
+        ({{ constant('App\\Helper\\Paginator::ITEMS_PER_PAGE') }} per page)
+</div>

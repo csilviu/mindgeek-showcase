@@ -1,0 +1,53 @@
+.movie {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+}
+
+.movie h1{margin:0;}
+.movie ul.details li{
+    display: inline-block;
+    padding: 0 5px;
+    border-left: 1px solid #ccc;
+}
+
+.movie ul.details li:first-child{
+    border: 0;
+}
+
+.review .author {
+    font-style: italic;
+}
+
+.keyArtImages{
+    float:left;
+}
+
+.other_details{
+    clear:left;
+}
+
+.paginator span, .paginator a{
+    display: inline-block;
+    padding:2px 3px;
+    margin:3px;
+    background:#ccc;
+    font-weight: bold;
+    text-decoration: none;
+    color:#369;
+}
+.paginator span {
+    font-style: italic;
+    color:#fff;
+    background: #222222;
+}
+
+.other_details{
+    padding: 5px;
+    border: 1px dotted #ccc;
+}
+
+a.more {
+    cursor: pointer;
+    display: block;
+}
